@@ -6,7 +6,7 @@
 # TESTED ON UBUNTU 18.04 LTS
 
 # SETUP & RUN
-# curl -sL https://raw.githubusercontent.com/jimangel/ubuntu-18.04-scripts/master/prepare-ubuntu-18.04-template.sh | sudo -E bash -
+# curl -sL https://raw.githubusercontent.com/bfowler/ubuntu-18.04-scripts/master/prepare-ubuntu-18.04-template.sh | sudo -E bash -
 
 if [ `id -u` -ne 0 ]; then
 	echo Need sudo
@@ -20,7 +20,8 @@ apt update -y
 apt upgrade -y
 
 #install packages
-apt install -y open-vm-tools
+#Install vmware-tools
+#apt install -y open-vm-tools
 
 #Stop services for cleanup
 service rsyslog stop
@@ -90,6 +91,11 @@ sudo cloud-init clean --logs
 #cleanup shell history
 cat /dev/null > ~/.bash_history && history -c
 history -w
+
+#cleanup logs
+find /var/log -type f -regex ".*\.gz$" -delete
+find /var/log -type f -regex ".*\.[0-9]$" -delete
+find /var/log/ -type f -exec cp /dev/null {} \;
 
 #shutdown
 shutdown -h now

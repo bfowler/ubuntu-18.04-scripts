@@ -1,6 +1,4 @@
-A collection of scripts to automate some of my "fresh installs."
+# Ubuntu 18.04 LTS template prep for vSphere
 
-This includes Ubuntu 18.04 LTS:
-- installed on a laptop
-- a template prep for vSphere
-- a post cloned template script to install kubeadm
+### SETUP & RUN
+`curl -sL https://raw.githubusercontent.com/bfowler/ubuntu-18.04-scripts/master/prepare-ubuntu-18.04-template.sh | sudo -E bash -`
