@@ -20,7 +20,10 @@ apt update -y
 apt upgrade -y
 
 #install packages
-#Install vmware-tools
+#I have found that the the VM customizations do not get applied
+#  properly when using open-vm-tool. Instead I am installing
+#  vmware-tools from vSphere
+#  Possibly https://github.com/vmware/open-vm-tools/issues/381
 #apt install -y open-vm-tools
 
 #Stop services for cleanup
